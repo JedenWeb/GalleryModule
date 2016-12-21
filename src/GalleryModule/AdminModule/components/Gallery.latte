@@ -1,0 +1,10 @@
+<h2>{$gallery->getName()}</h2>
+
+<div class="gallery">
+{foreach $gallery->getItems() as $item}
+	<div class="image">
+		<img n:img="galleries.'/'.$gallery->getSlug()/$item->getName(), 240x200, 'SHRINK_ONLY'" title="{$item->getDescription()}">
+		<p>{$item->getDescription()}</p>
+	</div>
+{/foreach}
+</div>

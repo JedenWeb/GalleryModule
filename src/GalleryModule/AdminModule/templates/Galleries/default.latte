@@ -1,0 +1,61 @@
+{block title}Galleries{/block}
+
+{block head}{/block}
+
+{block foot}
+	<script src="{$basePath}/vendor/jqueryui/jquery-ui.min.js"></script>
+	{*<script src="{$basePath}/vendor/nestedSortable/jquery.mjs.nestedSortable.js"></script>*}
+	<script src="{$basePath}/js/sortable.js"></script>
+	<script src="{$basePath}/js/scripts.js"></script>
+{/block}
+
+{block content}
+
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Galleries
+			<div class="pull-right">
+				<a class="btn btn-primary" n:href="Gallery:add">+ add</a>
+			</div>
+		</h1>
+	</div>
+</div>
+
+<div class="row" n:snippet="content">
+	<div class="col-lg-12">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Options</th>
+				</tr>
+			</thead>
+			<tbody class="sortable" data-link="{link sort!}">
+				<tr id="row-{$gallery->getId()}" n:foreach="$galleries as $gallery">
+					<td>{$gallery->getId()}</td>
+					<td>{$gallery->getName()}</td>
+					<td>
+						<a class="btn btn-xs btn-primary" n:href="Gallery:edit, $gallery->getId()">
+							<span class="glyphicon glyphicon-pencil"></span>
+							edit
+						</a>
+						<a class="btn btn-xs btn-primary ajax" n:href="visibility!, $gallery->getId()">
+							<span class="glyphicon glyphicon-eye-{$gallery->isVisible() ? 'open' : 'close'}"></span> {if !$gallery->isVisible()}in{/if}visible
+						</a>
+						<a class="btn btn-xs btn-danger ajax" n:href="delete!, $gallery->getId()" data-confirm="Do You really want to delete &quot;{$gallery->getName()}&quot;?">
+							<span class="glyphicon glyphicon-remove"></span>
+							delete
+						</a>
+						<a class="btn btn-xs btn-default handle">
+							<span class="glyphicon glyphicon-align-justify"></span>
+							move
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{/block}

@@ -1,0 +1,22 @@
+{block title}Gallery{/block}
+
+{block head}{/block}
+
+{block foot}{/block}
+
+{block content}
+
+	<h1>Gallery</h1>
+
+	<div class="gallery">
+		{foreach $galleries as $gallery}
+			<div class="gallery-image">
+				<a n:href="Gallery:, $gallery">
+					<img n:if="$first = $gallery->getFirstItem()" n:img="galleries.'/'.$gallery->getSlug()/$first->getName(), 240x200, 'FIT'" title="{$gallery->getName()}">
+				</a>
+				<p><a n:href="Gallery:, $gallery">{$gallery->getName()}</a></p>
+			</div>
+		{/foreach}
+	</div>
+
+{/block}

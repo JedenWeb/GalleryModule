@@ -1,0 +1,32 @@
+{block title}{$gallery->getName()}{/block}
+
+{block head}
+
+<link rel="stylesheet" href="{$basePath}/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="{$basePath}/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var $galleryImage = $(".gallery-image");
+		if ($galleryImage.length > 0) {
+			$galleryImage.fancybox({
+				padding: 0,
+				helpers:  {
+	        		title:  'float'
+		    	}
+			});			
+		}
+	});
+</script>
+
+{/block}
+
+{block foot}{/block}
+
+{block content}
+
+	<a class="small" n:href="Galleries:">zpět</a>
+
+	{control gallery, $gallery}
+
+{/block}

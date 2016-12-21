@@ -1,0 +1,15 @@
+{form form, class => 'ajax'}
+	<div class="row">
+		<div class="col-lg-12">
+			<p n:foreach="$form->getErrors() as $error">{$error}</p>
+		</div>
+		<div class="col-lg-12">
+			<div class="input-group">
+				{input description, class => 'form-control'}
+				<span class="input-group-btn">
+					<input class="btn btn-default" n:name="submit">
+				</span>
+			</div>
+		</div>
+	</div>
+{/form}

@@ -1,0 +1,96 @@
+{block title}Edit gallery{/block}
+
+{block head}{/block}
+
+{block foot}
+	<link rel="stylesheet" href="{$basePath}/vendor/jqueryui/themes/base/jquery-ui.min.css">
+	<link rel="stylesheet" href="{$basePath}/vendor/plupload/js/jquery.ui.plupload/css/jquery.ui.plupload.css">
+	<script src="{$basePath}/vendor/jqueryui/jquery-ui.min.js"></script>
+	<script src="{$basePath}/vendor/plupload/js/plupload.full.min.js"></script>
+	<script src="{$basePath}/vendor/plupload/js/jquery.ui.plupload/jquery.ui.plupload.min.js"></script>
+
+	<script src="{$basePath}/vendor/jqueryui/jquery-ui.min.js"></script>
+	<script src="{$basePath}/js/sortable.js"></script>
+	<script src="{$basePath}/js/scripts.js"></script>
+
+	<script>
+		$.nette.ext({
+			success: function(payload) {
+				console.log(payload);
+
+				if (payload.receiver) {
+					var $btn = $('#frm-'+payload.receiver+'-'+payload.id+'-form input[type=submit]');
+					$btn.addClass('btn-success');
+
+					var $grp = $('#frm-'+payload.receiver+'-'+payload.id+'-form .input-group');
+					$grp.addClass('has-success');
+
+					setTimeout(function() { $btn.removeClass('btn-success'); $grp.removeClass('has-success'); }, 2000);
+				}
+
+//				var pid = payload.product_id;
+//				var input = $("#frm-stockForm-" + pid + "-stock");
+//				var controlGroup = input.parent();
+//				var button = controlGroup.find(".btn");
+//				var defaultLabel = button.val();
+//				controlGroup.addClass("success");
+//				button.css("color", "#fff !important");
+//				button.val("Uloženo! :)");
+//				setTimeout(function() { controlGroup.removeClass("success"); button.val(defaultLabel); }, 2000);
+			}
+		});
+	</script>
+{/block}
+
+{block content}
+
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Edit gallery
+			<div class="pull-right">
+				<a class="btn btn-default" n:href="Galleries:">back</a>
+			</div>
+		</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		{control galleryForm}
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		{control plupload}
+	</div>
+</div>
+
+<div class="row sortable" data-link="{link sort!}" n:snippet="content">
+	<div class="col-lg-3" id="row-{$item->getId()}" n:foreach="$gallery->getItems() as $item">
+		<div class="thumbnail">
+			<img class="handle" n:img="galleries.'/'.$gallery->getSlug()/$item->getName(), 240x200, 'SHRINK_ONLY'" title="{$item->getDescription()}">
+			<div class="caption">
+				{if $item->getDiscr() !== 'photo'}
+					{control itemTitleForm-{$item->getId()}}
+				{/if}
+				{control itemDescriptionForm-{$item->getId()}}
+				<p>
+					<a class="btn btn-xs btn-primary ajax" n:href="visibility!, $item->getId()">
+						<span class="glyphicon glyphicon-eye-{$item->isVisible() ? 'open' : 'close'}"></span> {if !$item->isVisible()}in{/if}visible
+					</a>
+					<a class="btn btn-xs btn-danger ajax" n:href="delete!, $gallery->getId()" data-confirm="Do You really want to delete &quot;{$gallery->getName()}&quot;?">
+						<span class="glyphicon glyphicon-remove"></span>
+						delete
+					</a>
+					{*<a class="btn btn-xs btn-default handle">
+						<span class="glyphicon glyphicon-align-justify"></span>
+						move
+					</a>*}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{/block}
