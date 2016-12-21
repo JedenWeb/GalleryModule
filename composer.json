@@ -1,4 +1,6 @@
 {
+  "name": "jedenweb/gallery-module",
+  "license": ["GPL-2.0", "GPL-3.0", "BSD-2.0"],
   "repositories": [
     {
       "type": "git",
