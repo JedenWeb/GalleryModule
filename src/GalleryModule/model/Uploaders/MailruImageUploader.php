@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GalleryModule;
+namespace JedenWeb\GalleryModule;
 
 use Kdyby\Doctrine\EntityManager;
 use Nette\Http\FileUpload;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\GalleryModule\AdminModule;
+namespace JedenWeb\GalleryModule\AdminModule;
 
-use App\GalleryModule;
+use JedenWeb\GalleryModule;
 use Kdyby\Doctrine\EntityManager;
 use Kdyby\Doctrine\EntityRepository;
 use Nette\Application\UI\Control;

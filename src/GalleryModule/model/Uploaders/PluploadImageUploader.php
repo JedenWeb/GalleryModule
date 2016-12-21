@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GalleryModule;
+namespace JedenWeb\GalleryModule;
 
 use Echo511\Plupload\Entity\Upload;
 use Echo511\Plupload\Entity\UploadQueue;

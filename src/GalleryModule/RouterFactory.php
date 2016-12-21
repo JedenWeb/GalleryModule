@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GalleryModule;
+namespace JedenWeb\GalleryModule;
 
 use App\IRouterFactory;
 use Nette\Application\Routers\Route;

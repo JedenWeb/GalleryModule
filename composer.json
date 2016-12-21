@@ -17,5 +17,10 @@
     "nette/forms": "^2.4",
     "librette/doctrine-sortable": "^0.2.0",
     "zenify/doctrine-behaviors": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "JedenWeb\\": "src/"
+    }
   }
 }

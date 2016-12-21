@@ -1,8 +1,8 @@
 <?php
 
-namespace App\GalleryModule\AdminModule;
+namespace JedenWeb\GalleryModule\AdminModule;
 
-use App\GalleryModule\Gallery;
+use JedenWeb\GalleryModule\Gallery;
 use App\AppModule\AdminModule\SecuredPresenter;
 use Kdyby\Doctrine\EntityManager;
 use Kdyby\Doctrine\EntityRepository;

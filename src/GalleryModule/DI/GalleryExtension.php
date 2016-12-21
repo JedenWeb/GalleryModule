@@ -1,10 +1,10 @@
 <?php
 
-namespace App\GalleryModule\DI;
+namespace JedenWeb\GalleryModule\DI;
 
-use App\GalleryModule\AdminModule\IGalleryForm;
-use App\GalleryModule\AdminModule\IItemDescriptionForm;
-use App\GalleryModule\RouterFactory;
+use JedenWeb\GalleryModule\AdminModule\IGalleryForm;
+use JedenWeb\GalleryModule\AdminModule\IItemDescriptionForm;
+use JedenWeb\GalleryModule\RouterFactory;
 use Librette\Doctrine\Sortable\DI\SortableExtension;
 use Nette\DI\CompilerExtension;
 use Zenify\DoctrineBehaviors\DI\TimestampableExtension;

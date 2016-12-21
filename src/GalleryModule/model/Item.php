@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GalleryModule;
+namespace JedenWeb\GalleryModule;
 
 use Doctrine\ORM\Mapping as ORM;
 use JedenWeb\Doctrine\Visible\Visible;

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\GalleryModule\FrontModule;
+namespace JedenWeb\GalleryModule\FrontModule;
 
 use App\AppModule\FrontModule\BasePresenter;
-use App\GalleryModule\Gallery as GalleryEntity;
+use JedenWeb\GalleryModule\Gallery as GalleryEntity;
 use Kdyby\Doctrine\EntityManager;
 
 /**

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\GalleryModule\AdminModule;
+namespace JedenWeb\GalleryModule\AdminModule;
 
-use App\GalleryModule\Gallery;
 use App\AppModule\AdminModule\SecuredPresenter;
-use App\GalleryModule\Item;
 use App\InvalidStateException;
+use JedenWeb\GalleryModule\Gallery;
+use JedenWeb\GalleryModule\Item;
 use Echo511\Plupload\Control\IPluploadControlFactory;
 use Echo511\Plupload\Control\PluploadControl;
 use Echo511\Plupload\Entity\UploadQueue;
